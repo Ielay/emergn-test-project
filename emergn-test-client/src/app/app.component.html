@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="login" class="btn btn-primary active" role="button" routerLinkActive="active">Login page</a>
+      </li>
+      <li *ngIf="!authority" class="nav-item">
+        <a routerLink="register" class="btn btn-primary active" role="button" routerLinkActive="active">Registration page</a>
+      </li>
+      <li *ngIf="authority === 'user'" class="nav-item">
+        <a routerLink="users" class="btn btn-primary active" role="button" routerLinkActive="active">All users</a>
+      </li>
+    </ul>
+  </nav>
+
+  <router-outlet></router-outlet>
+</div>
+

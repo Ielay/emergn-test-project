@@ -1,0 +1,23 @@
+
+<div *ngIf="isLoggedIn; else isLoggedOut">
+  <div>Logged in as {{roles}}.</div>
+
+  <button id="logout-btn" class="btn btn-secondary" (click)="onLogout()">Logout</button>
+</div>
+
+<ng-template #isLoggedOut>
+  <h2>Please enter username and password to log in</h2>
+
+  <form id="login-form">
+    <label id="login-label" for="login">Login:</label>
+    <input id="login" type="text" required name="login" [(ngModel)]="loginForm.login"/>
+
+    <label id="password-label" for="password">Password:</label>
+    <input id="password" type="password" required name="password" [(ngModel)]="loginForm.password"/>
+
+    <button id="login-btn" (click)="onLogin()">Login</button>
+    <div *ngIf="isLoginFailed" class="alert alert-danger">
+      Login failed: {{errorMessage}}
+    </div>
+  </form>
+</ng-template>
